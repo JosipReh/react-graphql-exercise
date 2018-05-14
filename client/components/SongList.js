@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
-import gql from 'graphql-tag';
 import { graphql } from 'react-apollo';
 import { Link } from 'react-router';
-import FetchSongs from '../queries/fetchSongs';
+
+//  queries
+import fetchSongs from '../queries/fetchSongs';
+import deleteSongs from '../queries/deleteSong';
 
 class SongList extends Component {
 
@@ -18,7 +20,7 @@ class SongList extends Component {
         const { songs } = this.props.data;
         if (!songs) return <div>Loading</div>;
         return songs.map(({title, id}) => <li className="collection-item" key={id}>
-            {title}
+                <Link to={`/songs/${id}`}>{title}</Link>
             <i className="material-icons" onClick={() => this.handleDelete(id)}>delete</i>
         </li>);
     }
@@ -41,14 +43,6 @@ class SongList extends Component {
     }
 }
 
-const deleteSongs = gql`
-    mutation DeleteSong($id: ID) {
-        deleteSong(id: $id){
-            id
-        }
-    }
-`;
-
 export default graphql(deleteSongs)(
-    graphql(FetchSongs)(SongList)
+    graphql(fetchSongs)(SongList)
 );

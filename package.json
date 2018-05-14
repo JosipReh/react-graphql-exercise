@@ -1,16 +1,16 @@
 {
-  "name": "lyrical",
+  "name": "Lyrical",
   "version": "1.0.0",
-  "description": "Starter point for a graphQL course",
+  "description": "App that let's you add or remove songs, add lyrics to specific song and like them",
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/StephenGrider/Lyrical-GraphQL"
+    "url": "https://github.com/JosipReh/react-graphql-exercise"
   },
   "scripts": {
     "dev": "nodemon index.js --ignore client"
   },
-  "author": "",
+  "author": "Stephen Grider & Josip Reh",
   "license": "ISC",
   "dependencies": {
     "nodemon": "*",

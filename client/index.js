@@ -4,15 +4,16 @@ import { Router, Route, hashHistory, IndexRoute } from 'react-router';
 import ApolloClient from 'apollo-client';
 import { ApolloProvider } from 'react-apollo';
 
-
 import SongList from "./components/SongList";
 import App from "./components/App";
 import SongCreate from './components/SongCreate';
 import SongDetail from "./components/SongDetail";
 
-const client = new ApolloClient({});
-
 import './style/style.css';
+
+const client = new ApolloClient({
+    dataIdFromObject: o => o.id,
+});
 
 const Root = () => {
   return (
